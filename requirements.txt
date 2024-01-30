@@ -1,3 +1,3 @@
-streamlit==0.87.0
-hugchat==0.1.3
-transformers==4.11.3
+streamlit
+hugchat
+transformers
