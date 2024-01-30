@@ -1,3 +1,4 @@
 streamlit==1.10.0
 hugchat==1.0.0
 transformers==4.0.0
+distilbert-base-uncased-finetuned-sst-2-english
