@@ -14,8 +14,8 @@ sign.saveCookiesToDir(cookie_path_dir)
 # Create a ChatBot
 chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
 
-# Initialize sentiment analysis pipeline
-sentiment_analysis_pipeline = pipeline("sentiment-analysis")
+# Initialize sentiment analysis pipeline with a specific model
+sentiment_analysis_pipeline = pipeline("sentiment-analysis", model="nlptown/bert-base-multilingual-uncased-sentiment")
 
 # Streamlit app
 st.title("UNISPECTRA BOT")
@@ -25,8 +25,6 @@ st.sidebar.title("Chat History")
 chat_history = []
 
 # Function to update and display chat history
-
-
 def update_chat_history(user_input, bot_response, sentiment_label):
     chat_history.append({
         'user': {'text': user_input, 'sentiment': sentiment_label},
@@ -34,7 +32,6 @@ def update_chat_history(user_input, bot_response, sentiment_label):
     })
     st.sidebar.text(f"User ({sentiment_label}): {user_input}")
     st.sidebar.text(f"Bot ({sentiment_label}): {bot_response}")
-
 
 # Streamlit input and output components
 user_input = st.text_input(
